@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace CraftSharp.bukkit;
 
+/// <summary>
+/// Represents the art on a painting
+/// </summary>
 public class Art
 {
     public static readonly Art KEBAB = new(0, 1, 1);
@@ -81,15 +84,40 @@ public class Art
         this.height = height;
     }
 
+    /// <summary>
+    /// Gets the width of the painting, in blocks
+    /// </summary>
+    /// <returns>The width of the painting, in blocks</returns>
     public int GetBlockWidth() => width;
 
+    /// <summary>
+    /// Gets the height of the painting, in blocks
+    /// </summary>
+    /// <returns>The height of the painting, in blocks</returns>
     public int GetBlockHeight() => height;
 
+    /// <summary>
+    /// Get the ID of this painting.
+    /// </summary>
+    /// <returns>The ID of this painting</returns>
+    [Obsolete]
     public int GetId() => id;
 
+    /// <summary>
+    /// Get a painting by its numeric ID
+    /// </summary>
+    /// <param name="id">The ID</param>
+    /// <returns>The painting</returns>
     [Obsolete]
     public static Art GetById(int id) => BY_ID[id];
 
+    /// <summary>
+    /// Get a painting by its unique name
+    ///  
+    /// This ignores underscores and capitalization
+    /// </summary>
+    /// <param name="name">The name</param>
+    /// <returns>The painting</returns>
     public static Art GetByName(string name)
     {
         return BY_NAME[name.ToLower().Replace("_", "")];
